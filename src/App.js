@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Header from "./components/Header"
+import List from './components/List';
+import Footer from './components/Footer';
 
 function App() {
+  const [contacts, setContacts] = useState([]);
+  const [situation, setSituation] = useState("All")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='todoapp'>
+
+      <Header setContacts={setContacts} contacts={contacts} />
+      <List contacts={contacts} setContacts={setContacts} situation={situation}/>
+      <Footer contacts={contacts} setContacts={setContacts} situation={situation} setSituation={setSituation}/>
+
+      
     </div>
   );
 }
